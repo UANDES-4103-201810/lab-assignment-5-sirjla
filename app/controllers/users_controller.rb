@@ -11,7 +11,6 @@ class UsersController < ApplicationController
 
   def update
     user = User.find(params[:id])
-    puts params[:user]
     user.update!(params[:user])
     redirect_to user
   end
@@ -22,7 +21,8 @@ class UsersController < ApplicationController
   end
 
   def more_tickets_bought
-    ut = UserTicket.group(user).count
+    ut = UserTicket.select('user_id, count(user_id)').group(:user_id).limit(10)
+    #users = User.find(ut.user_id)
     render json: ut
   end
 end

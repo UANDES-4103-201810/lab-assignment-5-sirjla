@@ -1,22 +1,22 @@
 Rails.application.routes.draw do
   get '/tickets/show/:id', to: 'tickets#show'
   post '/tickets/', to: 'tickets#create'
-  patch '/tickets/update/:id', to: 'tickets#update'
-  delete '/tickets/destroy/:id', to: 'tickets#destroy'
+  patch '/tickets/:id', to: 'tickets#update'
+  delete '/tickets/:id', to: 'tickets#destroy'
 
   get '/events/show/:id', to: 'events#show'
   post '/events/', to: 'events#create'
-  patch '/events/update/:id', to: 'events#update'
-  delete '/events/destroy/:id', to: 'events#destroy'
+  patch '/events/:id', to: 'events#update'
+  delete '/events/:id', to: 'events#destroy'
 
   get '7places/show/:id', to: 'places#show'
   post '/places/', to: 'places#create'
-  patch '/places/update/:id', to: 'places#update'
-  delete '/places/destroy/:id', to: 'places#destroy'
+  patch '/places/:id', to: 'places#update'
+  delete '/places/:id', to: 'places#destroy'
 
   get '/users/show/:id', to: 'users#show'
   get '/users/more-tickets-bought', to: 'users#more_tickets_bought'
-  match '/users', to: 'users#create', via: [:post]
+  post '/users', to: 'users#create'
   patch '/users/:id', to: 'users#update'
   delete '/users/:id', to: 'users#destroy'
 
